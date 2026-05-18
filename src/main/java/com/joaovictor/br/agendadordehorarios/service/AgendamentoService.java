@@ -16,6 +16,7 @@ public class AgendamentoService {
 
    private final AgendamentoRepository agendamentoRepository;
 
+   // Marcando um horarios/ adicionando um agendamento
    public AgendamentoEntity salvarAgendamento(AgendamentoEntity agendamento) {
 
       LocalDateTime horaAgendamento = agendamento.getDataHoraAgendamento();
@@ -26,8 +27,13 @@ public class AgendamentoService {
 
       if (Objects.nonNull(agendados)) {
          throw new RuntimeException("Horario ja prenchido");
-      } else {
-         return agendamentoRepository.save(agendamento);
       }
+      return agendamentoRepository.save(agendamento);
    }
+
+   // Deletando um Agendamento/ Desmarcando um Horario
+   public void deletarAgendamento(LocalDateTime dataHoraAgendamento, String cliente) {
+      agendamentoRepository.deleteByDataHoraAgendamentoAndCliente(dataHoraAgendamento, cliente);
+   }
+
 }
