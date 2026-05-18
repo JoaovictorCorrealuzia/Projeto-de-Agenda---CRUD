@@ -1,5 +1,6 @@
 package com.joaovictor.br.agendadordehorarios.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -34,6 +35,13 @@ public class AgendamentoService {
    // Deletando um Agendamento/ Desmarcando um Horario
    public void deletarAgendamento(LocalDateTime dataHoraAgendamento, String cliente) {
       agendamentoRepository.deleteByDataHoraAgendamentoAndCliente(dataHoraAgendamento, cliente);
+   }
+
+   // Buscando Agendamentos
+   public AgendamentoEntity buscarAgendamentosDoDia(LocalDate data) {
+      LocalDateTime primeiraHora = data.atStartOfDay();
+      LocalDateTime horaFinalDia = data.atTime(23, 59, 59);
+      return agendamentoRepository.findByDataHoraAgendamentoBetween(primeiraHora, horaFinalDia);
    }
 
 }
