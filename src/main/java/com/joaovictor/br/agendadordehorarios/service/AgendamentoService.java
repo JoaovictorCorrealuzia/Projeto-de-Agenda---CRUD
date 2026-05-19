@@ -24,7 +24,7 @@ public class AgendamentoService {
       LocalDateTime horafim = agendamento.getDataHoraAgendamento().plusHours(1);
 
       AgendamentoEntity agendados = agendamentoRepository
-            .findByServicoAndDatahoraAgendamentoBetween(agendamento.getServico(), horaAgendamento, horafim);
+            .findByServicoAndDataHoraAgendamentoBetween(agendamento.getServico(), horaAgendamento, horafim);
 
       if (Objects.nonNull(agendados)) {
          throw new RuntimeException("Horario ja prenchido");

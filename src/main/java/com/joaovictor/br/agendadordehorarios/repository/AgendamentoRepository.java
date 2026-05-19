@@ -9,7 +9,7 @@ import com.joaovictor.br.agendadordehorarios.infrastructure.entity.AgendamentoEn
 import jakarta.transaction.Transactional;
 
 public interface AgendamentoRepository extends JpaRepository<AgendamentoEntity, Long> {
-      AgendamentoEntity findByServicoAndDatahoraAgendamentoBetween(String servico, LocalDateTime dataHorainicio,
+      AgendamentoEntity findByServicoAndDataHoraAgendamentoBetween(String servico, LocalDateTime dataHoraInicio,
                   LocalDateTime dataHoraFinal);
 
       @Transactional
