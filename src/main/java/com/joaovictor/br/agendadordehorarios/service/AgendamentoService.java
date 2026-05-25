@@ -2,6 +2,7 @@ package com.joaovictor.br.agendadordehorarios.service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.stereotype.Service;
@@ -38,7 +39,7 @@ public class AgendamentoService {
    }
 
    // Buscando Agendamentos
-   public AgendamentoEntity buscarAgendamentosDoDia(LocalDate data) {
+   public List<AgendamentoEntity> buscarAgendamentosDoDia(LocalDate data) {
       LocalDateTime primeiraHora = data.atStartOfDay();
       LocalDateTime horaFinalDia = data.atTime(23, 59, 59);
       return agendamentoRepository.findByDataHoraAgendamentoBetween(primeiraHora, horaFinalDia);

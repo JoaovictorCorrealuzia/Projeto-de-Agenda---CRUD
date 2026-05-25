@@ -2,6 +2,7 @@ package com.joaovictor.br.agendadordehorarios.controller;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,7 +37,7 @@ public class Controller {
    }
 
    @GetMapping("/BuscarAgendamento")
-   public ResponseEntity<AgendamentoEntity> buscarAgendamentosDia(@RequestParam LocalDate date) {
+   public ResponseEntity<List<AgendamentoEntity>> buscarAgendamentosDia(@RequestParam LocalDate date) {
       return ResponseEntity.accepted().body(agendamentoService.buscarAgendamentosDoDia(date));
    }
 

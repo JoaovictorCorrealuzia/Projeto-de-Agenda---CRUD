@@ -1,6 +1,7 @@
 package com.joaovictor.br.agendadordehorarios.repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -15,7 +16,7 @@ public interface AgendamentoRepository extends JpaRepository<AgendamentoEntity, 
       @Transactional
       void deleteByDataHoraAgendamentoAndCliente(LocalDateTime dataHoraAgendamento, String cliente);
 
-      AgendamentoEntity findByDataHoraAgendamentoBetween(LocalDateTime primeiraHora, LocalDateTime horaFinalDia);
+      List<AgendamentoEntity> findByDataHoraAgendamentoBetween(LocalDateTime primeiraHora, LocalDateTime horaFinalDia);
 
       AgendamentoEntity findByDataHoraAgendamentoAndCliente(LocalDateTime dataHoraAgendamento, String cliente);
 
