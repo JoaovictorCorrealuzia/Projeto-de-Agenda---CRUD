@@ -67,6 +67,13 @@ Exemplo de JSON:
 	"cliente": "Josefino"
 }	
 ```
+## Tech Stack
+
+**Linguagem:** Java
+
+**Framework:** Spring
+
+**Banco de dados:** H2db
 
 ## Aprendizados
 
